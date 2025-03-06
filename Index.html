@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPath - Explore Your Future</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #fc0505;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .cta-button {
+            background-color: #fe0000;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background-color: #f50606;
+        }
+        .interactive-section {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .interactive-section h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .interactive-section select, .interactive-section button {
+            font-size: 1em;
+            padding: 10px;
+            margin: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to CareerPath</h1>
+        <p>Your gateway to exploring career paths, internships, and job opportunities!</p>
+    </header>
+
+    <section>
+        <h2>About Us</h2>
+        <p>
+            CareerPath is an online platform designed to help students navigate the world of careers and job opportunities. Whether you're
+            exploring potential career paths, looking for your next internship, or applying for a full-time position, we are here to provide
+            the resources and connections to help you succeed.
+        </p>
+        <p>
+            Our mission is to empower students with the right tools and knowledge to make informed decisions about their future, connect
+            with potential employers, and gain hands-on experience through internships and jobs.
+        </p>
+        <button class="cta-button" onclick="window.location.href='register.html'">Get Started Now</button>
+    </section>
+
+    <section class="interactive-section">
+        <h3>Find the Right Career Path</h3>
+        <p>Answer a few questions to get personalized career suggestions!</p>
+        
+        <select id="careerInterest" name="careerInterest">
+            <option value="technology">Technology</option>
+            <option value="business">Business</option>
+            <option value="creative">Creative</option>
+            <option value="health">Health</option>
+            <option value="education">Education</option>
+        </select>
+
+        <select id="careerLevel" name="careerLevel">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+
+        <button onclick="getCareerRecommendations()">Get Recommendations</button>
+
+        <p id="recommendations"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 CareerPath. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function getCareerRecommendations() {
+            const interest = document.getElementById('careerInterest').value;
+            const level = document.getElementById('careerLevel').value;
+            let recommendations = '';
+
+            if (interest === 'technology') {
+                if (level === 'beginner') {
+                    recommendations = 'We recommend starting with coding bootcamps or entry-level tech support roles.';
+                } else if (level === 'intermediate') {
+                    recommendations = 'Consider roles in software development or data analysis.';
+                } else {
+                    recommendations = 'You can explore senior positions in AI, machine learning, or cloud architecture.';
+                }
+            } else if (interest === 'business') {
+                if (level === 'beginner') {
+                    recommendations = 'Try internships in project management or business operations.';
+                } else if (level === 'intermediate') {
+                    recommendations = 'Look for roles in marketing, finance, or business strategy.';
+                } else {
+                    recommendations = 'Explore leadership roles such as business consultant or CEO.';
+                }
+            } else if (interest === 'creative') {
+                if (level === 'beginner') {
+                    recommendations = 'Consider internships in graphic design, photography, or video editing.';
+                } else if (level === 'intermediate') {
+                    recommendations = 'Explore roles like content strategist, art director, or UX/UI designer.';
+                } else {
+                    recommendations = 'Look into senior roles like creative director or brand manager.';
+                }
+            } else if (interest === 'health') {
+                if (level === 'beginner') {
+                    recommendations = 'Look into entry-level roles in medical assisting or lab technician.';
+                } else if (level === 'intermediate') {
+                    recommendations = 'Consider roles such as nurse, physical therapist, or healthcare administrator.';
+                } else {
+                    recommendations = 'Explore senior roles in healthcare management or medical research.';
+                }
+            } else if (interest === 'education') {
+                if (level === 'beginner') {
+                    recommendations = 'Consider starting with teaching assistant or tutoring roles.';
+                } else if (level === 'intermediate') {
+                    recommendations = 'Explore roles as a teacher, counselor, or educational coordinator.';
+                } else {
+                    recommendations = 'You can aim for administrative roles like principal or curriculum developer.';
+                }
+            }
+
+            document.getElementById('recommendations').innerText = recommendations;
+        }
+    </script>
+
+</body>
+</html>
